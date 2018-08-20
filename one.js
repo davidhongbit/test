@@ -15,13 +15,13 @@ var privateKey = "cNcvQphXWjAJ365Y8Tuhti5a6fCh9ftpR3GScZs5vdidBwQqpxT4";
 const keyPair = bitcoin.ECPair.fromWIF(privateKey,regtest);
 
 //產生付款位址
-const { '2N5tpYfrvh57v2pq9HXgsxM2ZuRpPZf7fUr' } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
+const { 2N5tpYfrvh57v2pq9HXgsxM2ZuRpPZf7fUr } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
 console.log(bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey }));
 const txb = new bitcoin.TransactionBuilder(regtest);
 
 
 //用listunspent 取出最後一筆資料的txid
-txb.addInput('c3acac43c6f0e83538fb5c82ed01379349f5dccf43a8af7bb5d8f0c60fb1fcfc', 0);
+txb.addInput('c3acac43c6f0e83538fb5c82ed01379349f5dccf43a8af7bb5d8f0c60fb1fcfc', 25);
 
 //用getnewaddress取得新的位址
 txb.addOutput('2N5tpYfrvh57v2pq9HXgsxM2ZuRpPZf7fUr', 25)
